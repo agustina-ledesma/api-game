@@ -12,7 +12,7 @@ const PORT = 3000;
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://api-game-satc.onrender.com"
+    "https://api-game-satc.onrender.com/"
   ],
   methods: ["GET", "POST"],
   credentials: true,
@@ -32,7 +32,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173", 
-      "https://api-game-satc.onrender.com"
+      "https://api-game-satc.onrender.com/"
     ],
     methods: ["GET", "POST"],
     credentials: true,
