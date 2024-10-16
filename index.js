@@ -11,7 +11,8 @@ const PORT = 3000;
 // Ajuste de CORS para la API
 const corsOptions = {
   origin: [
-   "*"
+    "http://localhost:5173",
+    "https://api-game-satc.onrender.com"
   ],
   methods: ["GET", "POST"],
   credentials: true,
@@ -30,14 +31,13 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      "*", 
-      "https://api-game-satc.onrender.com" 
+      "http://localhost:5173", 
+      "https://api-game-satc.onrender.com"
     ],
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
-
 
 io.on("connection", (socket) => {
   console.log("Nuevo cliente conectado");
