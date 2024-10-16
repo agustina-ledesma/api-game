@@ -8,15 +8,17 @@ import * as rankingController from "./src/controllers/rankingController.js";
 const app = express();
 const PORT = 3000;
 
+// Ajuste de CORS para la API
 const corsOptions = {
-  origin: "*",
+  origin: [
+    "http://localhost:3000", 
+    "https://api-game-satc.onrender.com" 
+  ],
   methods: ["GET", "POST"],
   credentials: true,
 };
 
-//app.use(cors(corsOptions));
-app.use(cors());
-
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(route);
 
@@ -28,13 +30,16 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: [
+      "http://localhost:3000", 
+      "https://api-game-satc.onrender.com" 
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
 
-// Manejar conexiones de socket
+
 io.on("connection", (socket) => {
   console.log("Nuevo cliente conectado");
 
