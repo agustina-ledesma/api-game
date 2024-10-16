@@ -11,8 +11,7 @@ const PORT = 3000;
 // Ajuste de CORS para la API
 const corsOptions = {
   origin: [
-    "http://localhost:3000", 
-    "https://api-game-satc.onrender.com" 
+   "*"
   ],
   methods: ["GET", "POST"],
   credentials: true,
